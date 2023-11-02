@@ -1,8 +1,8 @@
 import { refs } from './refs';
 import Darkmode from 'darkmode-js';
 
-// Инициализация страницы
-stepAuth();
+
+// stepAuth();
 document.addEventListener('DOMContentLoaded', function () {
   const options = {
     bottom: '64px', // default: '32px'
@@ -26,11 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
     refs.inputSwitch.checked = true;
     darkmode.toggle();
   }
-
-  // const catAllCategFirstChild =
-  //   refs.listCategories.querySelector('li:first-child');
-  //   console.log(catAllCategFirstChild);
-  // catAllCategFirstChild.classList.add('currentActiveLi');
 });
 
 refs.inputSwitch.addEventListener('click', e => {
@@ -70,37 +65,37 @@ function showModalAuth(view) {
   }
 }
 
-refs.formModalAuth.onsubmit = function (e) {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const formProps = Object.fromEntries(formData);
-  sendAuthData(formProps).then(response => {
-    if (response?.data) {
-      localStorage.setItem('name', response.data);
-      showModalAuth(false);
-      stepAuth();
-    }
-  });
-};
+// refs.formModalAuth.onsubmit = function (e) {
+//   e.preventDefault();
+//   const formData = new FormData(e.target);
+//   const formProps = Object.fromEntries(formData);
+//   sendAuthData(formProps).then(response => {
+//     if (response?.data) {
+//       localStorage.setItem('name', response.data);
+//       showModalAuth(false);
+//       stepAuth();
+//     }
+//   });
+// };
 
-function sendAuthData(data) {
-  console.log(data);
-  return new Promise(resolve => {
-    setTimeout(() => resolve({ data: 'Andrey' }), 1000);
-  });
-}
+// function sendAuthData(data) {
+//   console.log(data);
+//   return new Promise(resolve => {
+//     setTimeout(() => resolve({ data: 'Andrey' }), 1000);
+//   });
+// }
 
-function stepAuth() {
-  if (localStorage.getItem('name')) {
-    refs.singUpButton.innerText = localStorage.getItem('name');
-    refs.singUpButton.removeEventListener('click');
-    refs.singUpButton.addEventListener('click', () => {
-      logOut();
-    });
-  }
-}
+// function stepAuth() {
+//   if (localStorage.getItem('name')) {
+//     refs.singUpButton.innerText = localStorage.getItem('name');
+//     refs.singUpButton.removeEventListener('click');
+//     refs.singUpButton.addEventListener('click', () => {
+//       logOut();
+//     });
+//   }
+// }
 
-function logOut() {
-  localStorage.clear();
-  refs.singUpButton.innerText = 'Sing Up';
-}
+// function logOut() {
+//   localStorage.clear();
+//   refs.singUpButton.innerText = 'Sing Up';
+// }
