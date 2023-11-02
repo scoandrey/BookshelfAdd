@@ -1,0 +1,108 @@
+@font-face {
+  font-family: var(--font-primary);
+  src: url('https://fonts.googleapis.com/css2?family=Inter&family=Kalam&family=Roboto:wght@400;500;700&display=swap');
+}
+.darkmode--activated .darkmode-background {
+  background-color: #202024; /* цвет фона в тёмном режиме */
+}
+
+//добавить классы нужные + нужный цвет для текста
+.darkmode--activated li {
+  color: rgba(255, 255, 255, 0.6);
+}
+.darkmode--activated .book_author,
+.darkmode--activated .list_name {
+  color: #b4afaf;
+}
+
+.darkmode--activated h1,
+.darkmode--activated h3 {
+  color: #fff;
+}
+
+.darkmode--activated .currentActiveLi {
+  color: #eac645;
+}
+
+.darkmode--activated .itemsCategories:hover,
+.darkmode--activated .itemsCategories:focus {
+  color: #eac645;
+}
+
+.darkmode--activated .ulListCategories::-webkit-scrollbar-thumb {
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #eac645 18.03%,
+    #ffffff 100%
+  );
+}
+
+.darkmode--activated .flexForHeader {
+  background: #111111;
+}
+
+.darkmode--activated .logoBookshelf,
+.darkmode--activated .modal-close-btn {
+  fill: #fff;
+}
+
+.darkmode--activated .shoppingList,
+.darkmode--activated .counterPoint {
+  color: #fff;
+}
+
+@mixin screen($size) {
+  $desktop: '(min-width: 1440px)';
+  $tablet: '(min-width: 768px)';
+  $mobile: '(min-width: 375px)';
+  @if $size ==desktop {
+    @media only screen and #{$desktop} {
+      @content;
+    }
+  } @else if $size ==tablet {
+    @media only screen and #{$tablet} {
+      @content;
+    }
+  } @else if $size ==mobile {
+    @media only screen and #{$mobile} {
+      @content;
+    }
+  }
+}
+.section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  @include screen(tablet) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  @include screen(desktop) {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+}
+.container {
+  max-width: 375px;
+  padding: 0 20px;
+  margin: 0 auto;
+  @include screen(tablet) {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+  @include screen(desktop) {
+    max-width: 1440px;
+    padding: 0px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .container {
+    padding: 0px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .asideFlex {
+    display: flex;
+  }
+}

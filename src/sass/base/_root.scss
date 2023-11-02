@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: 
+  url('/src/fonts/dm-sans/DMSans-Regular.woff') format("woff"),
+  url('/src/fonts/dm-sans/DMSans-Italic.woff') format("woff"),
+  url('/src/fonts/dm-sans/DMSans-Bold.woff') format("woff"),
+  url('/src/fonts/dm-sans/DMSans-Medium.woff') format("woff")
+}
+
+:root {
+  --font-primary: 'DM Sans';
+  --text-color-primary: #111111;
+  --text-color-secondary: #b4afaf;
+  --bg-color-light: #f6f6f6;
+  --bg-color-dark: #202024;
+  --bg-color-white: #ffffff;
+  --bg-color-black: #111111;
+  --color-accent: #4f2ee8;
+}

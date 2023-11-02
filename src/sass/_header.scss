@@ -1,0 +1,326 @@
+.header {
+  z-index: 21;
+  position: relative;
+}
+
+.flexForHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  height: 72px;
+  background: #ffffff;
+  border: 1.5px solid #111111;
+  border-radius: 0px 0px 8px 8px;
+}
+
+@media (min-width: 375px) {
+  .flexForHeader {
+    max-width: 788px;
+  }
+}
+
+@media (min-width: 768px) {
+  .flexForHeader {
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .flexForHeader {
+    min-width: 1440px;
+  }
+}
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #000000;
+  padding-left: 20px;
+}
+
+.logoIcon {
+  width: 24px;
+  height: 24px;
+  isolation: isolate;
+}
+
+.logoBookshelf {
+  width: 77px;
+  
+}
+
+.logoText {
+  width: 77px;
+  color: #000000;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+.headerNav {
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 375px) {
+  .headerNav {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .headerNav {
+    display: flex;
+  }
+}
+
+@media (min-width: 1440px) {
+  .headerNav {
+    display: flex;
+  }
+}
+
+.headerList {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .headerListItem:not(:last-child) {
+    margin-left: 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .headerListItem:not(:last-child) {
+    margin-right: 24px;
+    margin-left: 0;
+  }
+}
+
+.homeLink {
+  width: 40px;
+
+  margin-top: auto;
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+
+  color: var(--text-color-primary);
+  isolation: isolate;
+}
+
+.current {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px 16px;
+  gap: 10px;
+
+  width: 100%;
+  height: 34px;
+
+  background: #eac645;
+  border-radius: 36px;
+}
+
+.darkmode--activated .current {
+  // background: transparent;
+  color: black;
+}
+
+.darkmode--activated .homeLink {
+  color: #fff;
+}
+
+.shoppingList {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+
+  color: var(--text-color-primary);
+}
+
+// .darkmode--activated .shoppingList {
+//   width: 156px;
+//   height: 34px;
+//   color: black;
+//   background: #eac645;
+//   border-radius: 36px;
+// }
+
+.cartHeader {
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  fill: black;
+}
+
+.cartHeader_current {
+  fill: black;
+}
+
+.darkmode--activated .cartHeader {
+  fill: white;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+@media (min-width: 768px) {
+  .switch {
+    margin-left: 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .switch {
+    margin-left: 718px;
+  }
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+//polzunok
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.userButton {
+  margin-right: 10px;
+  width: 184px;
+  height: 48px;
+  background: #4f2ee8;
+  border: 1.5px solid #111111;
+  border-radius: 18px;
+  // display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  isolation: isolate;
+}
+
+@media (min-width: 375px) {
+  .userButton {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .userButton {
+    display: flex;
+  }
+}
+
+@media (min-width: 1440px) {
+  .userButton {
+    display: flex;
+  }
+}
+
+.userSpan {
+  width: 46px;
+  height: 18px;
+  margin-left: 14px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+
+.arrowSignInHeader {
+  width: 20px;
+  height: 20px;
+  margin-right: 14px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.amazonLogo {
+  width: 200px;
+  height: 100px;
+  fill: red;
+}
+
+.mobileWrap {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  margin-right: 27px;
+}

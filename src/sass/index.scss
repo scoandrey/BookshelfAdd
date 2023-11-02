@@ -1,2 +1,16 @@
 @import './common';
-@import './example';
+@import './base/reset';
+@import './base/root';
+@import './base/base';
+@import './base/loader';
+@import './base/support';
+@import './header';
+@import './main';
+@import './sideBar';
+@import './openModalBook';
+@import './base/loader';
+@import './mobile-menu';
+
+@import './media/mainPage';
+@import './media/shopList';
+@import './modalAuth';
