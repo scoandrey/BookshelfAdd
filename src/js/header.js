@@ -2,7 +2,7 @@ import { refs } from './refs';
 import Darkmode from 'darkmode-js';
 
 
-// stepAuth();
+stepAuth();
 document.addEventListener('DOMContentLoaded', function () {
   const options = {
     bottom: '64px', // default: '32px'
