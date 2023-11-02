@@ -2,7 +2,7 @@ import { refs } from './refs';
 import Darkmode from 'darkmode-js';
 
 
-stepAuth();
+// stepAuth();
 document.addEventListener('DOMContentLoaded', function () {
   const options = {
     bottom: '64px', // default: '32px'
@@ -55,15 +55,15 @@ refs.closeBtn.addEventListener('click', e => {
   showModalAuth(false);
 });
 
-function showModalAuth(view) {
-  if (!view) {
-    refs.body[0].style.overflow = 'visible';
-    refs.modalAuth.style.display = 'none';
-  } else {
-    refs.body[0].style.overflow = 'hidden';
-    refs.modalAuth.style.display = 'flex';
-  }
-}
+// function showModalAuth(view) {
+//   if (!view) {
+//     refs.body[0].style.overflow = 'visible';
+//     refs.modalAuth.style.display = 'none';
+//   } else {
+//     refs.body[0].style.overflow = 'hidden';
+//     refs.modalAuth.style.display = 'flex';
+//   }
+// }
 
 // refs.formModalAuth.onsubmit = function (e) {
 //   e.preventDefault();
@@ -81,7 +81,7 @@ function showModalAuth(view) {
 // function sendAuthData(data) {
 //   console.log(data);
 //   return new Promise(resolve => {
-//     setTimeout(() => resolve({ data: 'Andrey' }), 1000);
+//     setTimeout(() => resolve({ data }), 1000);
 //   });
 // }
 
