@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://scoandrey.github.io/Bookshelf",
+  "homepage": "https://scoandrey.github.io/BookshelfAdd",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /Bookshelf/"
+    "build": "parcel build src/*.html --public-url /BookshelfAdd/"
   },
   "repository": {
     "type": "git",
