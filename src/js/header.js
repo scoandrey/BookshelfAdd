@@ -1,7 +1,6 @@
 import { refs } from './refs';
 import Darkmode from 'darkmode-js';
 
-
 // stepAuth();
 document.addEventListener('DOMContentLoaded', function () {
   const options = {
@@ -22,46 +21,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const lSDarkMode = localStorage.getItem('darkmode');
   const parsedDarkMode = JSON.parse(lSDarkMode);
+
   if (parsedDarkMode) {
     refs.inputSwitch.checked = true;
     darkmode.toggle();
   }
+
+  refs.inputSwitch.addEventListener('click', e => {
+    const options = {
+      bottom: '64px', // default: '32px'
+      right: 'unset', // default: '32px'
+      left: '32px', // default: 'unset'
+      time: '0.5s', // default: '0.3s'
+      mixColor: '#', // default: '#fff'
+      backgroundColor: '#f3f3f3', // default: '#fff'
+      buttonColorDark: '#100f2c', // default: '#100f2c'
+      buttonColorLight: '#fff', // default: '#fff'
+      saveInCookies: false, // default: true,
+      label: '🌓', // default: ''
+      autoMatchOsTheme: true, // default: true
+    };
+
+    const darkmode = new Darkmode(options);
+    darkmode.toggle();
+  });
+
+  refs.singUpButton.addEventListener('click', () => {
+    refs.modalAuth.style.display = 'flex';
+
+  });
+
+  refs.closeBtn.addEventListener('click', () => {
+    refs.modalAuth.style.display = 'none';
+  });
 });
 
-refs.inputSwitch.addEventListener('click', e => {
-  const options = {
-    bottom: '64px', // default: '32px'
-    right: 'unset', // default: '32px'
-    left: '32px', // default: 'unset'
-    time: '0.5s', // default: '0.3s'
-    mixColor: '#', // default: '#fff'
-    backgroundColor: '#f3f3f3', // default: '#fff'
-    buttonColorDark: '#100f2c', // default: '#100f2c'
-    buttonColorLight: '#fff', // default: '#fff'
-    saveInCookies: false, // default: true,
-    label: '🌓', // default: ''
-    autoMatchOsTheme: true, // default: true
-  };
 
-  const darkmode = new Darkmode(options);
-  darkmode.toggle();
-});
 
-refs.singUpButton.addEventListener('click', e => {
-  showModalAuth(true);
-});
-
-refs.closeBtn.addEventListener('click', e => {
-  showModalAuth(false);
-});
 
 // function showModalAuth(view) {
-//   if (!view) {
-//     refs.body[0].style.overflow = 'visible';
-//     refs.modalAuth.style.display = 'none';
-//   } else {
-//     refs.body[0].style.overflow = 'hidden';
+//   if (view) {
+//     // refs.body.style.overflow = 'visible';
 //     refs.modalAuth.style.display = 'flex';
+//     console.log(view);
+//   } else {
+//     // refs.body.style.overflow = 'hidden';
+//     refs.modalAuth.style.display = 'none';
+//     console.log(view);
 //   }
 // }
 

@@ -1,5 +1,5 @@
 export const refs = {
-  body: document.getElementsByTagName('body'),
+  body: document.querySelector('body'),
   listCategories: document.getElementById('jsListCategories'),
   listSuportUkraine: document.getElementById('jsListSuportUkraine'),
   inputSwitch: document.getElementById('switchMode'),
@@ -11,7 +11,7 @@ export const refs = {
   modal: document.querySelector('.renderModal'),
   allCategories: document.querySelector('.allCategories'),
   singUpButton: document.querySelector('.userButton'),
-  modalAuth: document.getElementById('modalAuth'),
-  closeBtn: document.getElementById('closeBtn'),
+  modalAuth: document.querySelector('#modalAuth'),
+  closeBtn: document.querySelector('#closeBtn'),
   formModalAuth: document.getElementById('formAuth'),
 };
