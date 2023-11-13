@@ -1,7 +1,11 @@
 import { refs } from './refs';
 import Darkmode from 'darkmode-js';
 
+<<<<<<< Updated upstream
 // stepAuth();
+=======
+stepAuth();
+>>>>>>> Stashed changes
 document.addEventListener('DOMContentLoaded', function () {
   const options = {
     bottom: '64px', // default: '32px'
@@ -58,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+<<<<<<< Updated upstream
 
 // function showModalAuth(view) {
 //   if (view) {
@@ -70,38 +75,62 @@ document.addEventListener('DOMContentLoaded', function () {
 //     console.log(view);
 //   }
 // }
+=======
+refs.singUpButton.addEventListener('click', () => {
+  showModalAuth(true);
+});
+// refs.singUpButton.addEventListener('click', () => {
+//   refs.modalAuth.style.display = 'flex';
+// });
+refs.closeBtn.addEventListener('click', () => {
+  showModalAuth(false);
+});
+// refs.closeBtn.addEventListener('click', () => {
+//   refs.modalAuth.style.display = 'none';
+// });
 
-// refs.formModalAuth.onsubmit = function (e) {
-//   e.preventDefault();
-//   const formData = new FormData(e.target);
-//   const formProps = Object.fromEntries(formData);
-//   sendAuthData(formProps).then(response => {
-//     if (response?.data) {
-//       localStorage.setItem('name', response.data);
-//       showModalAuth(false);
-//       stepAuth();
-//     }
-//   });
-// };
+function showModalAuth(view) {
+  if (!view) {
+    refs.body.style.overflow = 'visible';
+    refs.modalAuth.style.display = 'none';
+  } else {
+    refs.body.style.overflow = 'hidden';
+    refs.modalAuth.style.display = 'flex';
+  }
+}
+>>>>>>> Stashed changes
 
-// function sendAuthData(data) {
-//   console.log(data);
-//   return new Promise(resolve => {
-//     setTimeout(() => resolve({ data }), 1000);
-//   });
-// }
+refs.formModalAuth.onsubmit = function (e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const formProps = Object.fromEntries(formData);
+  sendAuthData(formProps).then(response => {
+    if (response?.data) {
+      localStorage.setItem('name', response.data.name);
+      showModalAuth(false);
+      stepAuth();
+    }
+  });
+};
 
-// function stepAuth() {
-//   if (localStorage.getItem('name')) {
-//     refs.singUpButton.innerText = localStorage.getItem('name');
-//     refs.singUpButton.removeEventListener('click');
-//     refs.singUpButton.addEventListener('click', () => {
-//       logOut();
-//     });
-//   }
-// }
+function sendAuthData(data) {
+  // console.log(data);
+  return new Promise(resolve => {
+    setTimeout(() => resolve({ data }), 1000);
+  });
+}
 
-// function logOut() {
-//   localStorage.clear();
-//   refs.singUpButton.innerText = 'Sing Up';
-// }
+function stepAuth() {
+  if (localStorage.getItem('name')) {
+    refs.singUpButton.innerText = localStorage.getItem('name');
+    // refs.singUpButton.removeEventListener('click');
+    refs.singUpButton.addEventListener('click', () => {
+      logOut();
+    });
+  }
+}
+
+function logOut() {
+  localStorage.clear();
+  refs.singUpButton.innerText = 'Sing Up';
+}
