@@ -1,8 +1,7 @@
 import { refs } from './refs';
 import Darkmode from 'darkmode-js';
 
-
-// stepAuth();
+stepAuth();
 document.addEventListener('DOMContentLoaded', function () {
   const options = {
     bottom: '64px', // default: '32px'
@@ -55,47 +54,46 @@ refs.closeBtn.addEventListener('click', e => {
   showModalAuth(false);
 });
 
-// function showModalAuth(view) {
-//   if (!view) {
-//     refs.body[0].style.overflow = 'visible';
-//     refs.modalAuth.style.display = 'none';
-//   } else {
-//     refs.body[0].style.overflow = 'hidden';
-//     refs.modalAuth.style.display = 'flex';
-//   }
-// }
+function showModalAuth(view) {
+  if (!view) {
+    refs.body[0].style.overflow = 'visible';
+    refs.modalAuth.style.display = 'none';
+  } else {
+    refs.body[0].style.overflow = 'hidden';
+    refs.modalAuth.style.display = 'flex';
+  }
+}
 
-// refs.formModalAuth.onsubmit = function (e) {
-//   e.preventDefault();
-//   const formData = new FormData(e.target);
-//   const formProps = Object.fromEntries(formData);
-//   sendAuthData(formProps).then(response => {
-//     if (response?.data) {
-//       localStorage.setItem('name', response.data);
-//       showModalAuth(false);
-//       stepAuth();
-//     }
-//   });
-// };
+refs.formModalAuth.onsubmit = function (e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const formProps = Object.fromEntries(formData);
+  sendAuthData(formProps).then(response => {
+    if (response?.data) {
+      localStorage.setItem('name', response.data.name);
+      showModalAuth(false);
+      stepAuth();
+    }
+  });
+};
 
-// function sendAuthData(data) {
-//   console.log(data);
-//   return new Promise(resolve => {
-//     setTimeout(() => resolve({ data }), 1000);
-//   });
-// }
+function sendAuthData(data) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve({ data }), 1000);
+  });
+}
 
-// function stepAuth() {
-//   if (localStorage.getItem('name')) {
-//     refs.singUpButton.innerText = localStorage.getItem('name');
-//     refs.singUpButton.removeEventListener('click');
-//     refs.singUpButton.addEventListener('click', () => {
-//       logOut();
-//     });
-//   }
-// }
+function stepAuth() {
+  if (localStorage.getItem('name')) {
+    refs.singUpButton.innerText = localStorage.getItem('name');
+    // refs.singUpButton.removeEventListener('click');
+    refs.singUpButton.addEventListener('click', () => {
+      logOut();
+    });
+  }
+}
 
-// function logOut() {
-//   localStorage.clear();
-//   refs.singUpButton.innerText = 'Sing Up';
-// }
+function logOut() {
+  localStorage.clear();
+  refs.singUpButton.innerText = 'Sing Up';
+}
