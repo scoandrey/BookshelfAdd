@@ -45,19 +45,8 @@
   border: 0;
 }
 .signUp {
-  // display: flex;
   margin-right: auto;
   margin-left: auto;
-  // align-items: center;
-  // // justify-content: space-between;
-  // color: #ffffff;
-  // // width: 130px;
-
-  // display: block;
-  // margin-left: auto;
-  // margin-right: auto;
-  // margin-top: 40px;
-  // margin-bottom: 40px;
   width: 25%;
   height: 64px;
   cursor: pointer;
@@ -72,11 +61,6 @@
   padding: 0;
   border: 0;
 }
-
-// .signUp-link:hover,
-// .signUp-link:focus {
-//   color: white;
-// }
 
 .close-btn {
   position: absolute;
@@ -94,13 +78,3 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.btn-signUpIn {
-  display: flex;
-}
-
-.signUp {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
-}
