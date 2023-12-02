@@ -1,7 +1,7 @@
 import { refs } from './refs';
 import Darkmode from 'darkmode-js';
 
-stepAuth();
+// stepAuth();
 document.addEventListener('DOMContentLoaded', function () {
   const options = {
     bottom: '64px', // default: '32px'
@@ -46,11 +46,13 @@ refs.inputSwitch.addEventListener('click', e => {
   darkmode.toggle();
 });
 
-refs.singUpButton.addEventListener('click', e => {
+const showModalAuthListener = () => {
   showModalAuth(true);
-});
+};
 
-refs.closeBtn.addEventListener('click', e => {
+refs.singUpButton.addEventListener('click', showModalAuthListener);
+
+refs.closeBtn.addEventListener('click', () => {
   showModalAuth(false);
 });
 
@@ -68,13 +70,23 @@ refs.formModalAuth.onsubmit = function (e) {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  sendAuthData(formProps).then(response => {
-    if (response?.data) {
-      localStorage.setItem('name', response.data.name);
-      showModalAuth(false);
-      stepAuth();
-    }
-  });
+  const divNameError = document.querySelector('.name-error');
+
+  const { 0: name, 1: tel, 2: email } = e.target;
+  if (name.value.length < 2) {
+    divNameError.innerText = 'The name must be longer two symbols';
+  }
+  const success = !divNameError.textContent;
+  if (success) {
+    sendAuthData(formProps).then(response => {
+      if (response?.data) {
+        localStorage.setItem('name', response.data.name);
+        showModalAuth(false);
+        stepAuth();
+        refs.singUpButton.removeEventListener('click', showModalAuthListener);
+      }
+    });
+  }
 };
 
 function sendAuthData(data) {
@@ -86,7 +98,7 @@ function sendAuthData(data) {
 function stepAuth() {
   if (localStorage.getItem('name')) {
     refs.singUpButton.innerText = localStorage.getItem('name');
-    // refs.singUpButton.removeEventListener('click');
+    // refs.singUpButton.removeEventListener('click', ()=> {});
     refs.singUpButton.addEventListener('click', () => {
       logOut();
     });
@@ -95,5 +107,10 @@ function stepAuth() {
 
 function logOut() {
   localStorage.clear();
-  refs.singUpButton.innerText = 'Sing Up';
+  // refs.singUpButton.innerText = 'Sing Up';
 }
+
+// refs.formModalAuth.addEventListener('submit', e => {
+//   e.preventDefault();
+
+// });
