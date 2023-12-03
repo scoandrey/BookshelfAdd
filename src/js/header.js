@@ -70,17 +70,30 @@ refs.formModalAuth.onsubmit = function (e) {
   e.preventDefault();
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
-  const divNameError = document.querySelector('.name-error');
-
+  const nameError = document.querySelector('.name-error');
+  const telError = document.querySelector('.tel-error');
   const { 0: name, 1: tel, 2: email } = e.target;
-  if (name.value.length < 2) {
-    divNameError.innerText = 'The name must be longer two symbols';
+
+  const nameSuccess = name.value.length > 1;
+  if (!nameSuccess) {
+    nameError.innerText = 'The name must be longer than one symbol';
+  } else {
+    nameError.innerText = '';
   }
-  const success = !divNameError.textContent;
-  if (success) {
+
+  const telSuccess = tel.value.length > 9;
+  if (!telSuccess) {
+    telError.innerText = 'The tel must be longer than 9 symbols';
+  } else {
+    telError.innerText = '';
+  }
+
+  if (nameSuccess && telSuccess) {
     sendAuthData(formProps).then(response => {
       if (response?.data) {
         localStorage.setItem('name', response.data.name);
+        localStorage.setItem('tel', response.data.tel);
+        localStorage.setItem('email', response.data.email);
         showModalAuth(false);
         stepAuth();
         refs.singUpButton.removeEventListener('click', showModalAuthListener);
